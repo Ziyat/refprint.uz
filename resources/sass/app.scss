@@ -6,3 +6,23 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+}
+
+.logo{
+  background-image: url("../images/RefPrintLogo.svg");
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 35px;
+  margin-right: 10px;
+}

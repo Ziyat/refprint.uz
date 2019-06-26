@@ -7,24 +7,21 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css','build') }}" rel="stylesheet">
+
 </head>
 <body>
-    <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -71,10 +68,17 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
+        <main class="py-4 app-content">
+            <div class="container">
             @yield('content')
+            </div>
         </main>
-    </div>
+        <footer>
+            <hr>
+            <div class="container">
+                        <p>&copy <a href="{{url('/')}}">{{ config('app.name') }}</a> | {{date('Y')}}</p>
+            </div>
+        </footer>
+        <script src="{{ mix('js/app.js','build') }}" defer></script>
 </body>
 </html>
